@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Lab.MVC.CadastroClientesEProdutos.Models.Pedido>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar Pedidos por Cliente</h2>
+
+<p>
+    @Html.ActionLink("Novo Pedido", "Incluir", null, new { @class = "btn btn-primary" })
+</p>
+
+<!--Foi inserido esta Div AQUI.-->
+@using (Html.BeginForm("Listar", "Pedidos", FormMethod.Get))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("Cliente", htmlAttributes:
+            new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("id",
+                (SelectList)ViewBag.ListaDeClientes,
+                "TODOS",
+               new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Buscar Pedidos" class="btn btn-info" />
+            </div>
+        </div> <hr />
+    </div>
+}
+<!--Foi inserido esta Div AQUI.-->
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DocCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroPedido)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroPedido)
+            </td>
+            <td>
+                @Html.ActionLink("Editar Item", "Editar", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Detalhe", "Detalhes", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Remover", "Excluir", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,21 @@
+﻿<!--Usuário e Senha - Inicio para codar-->
+<!--Usuário Logado if-->
+@if (Request.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink(User.Identity.Name, "Index", "Home")
+        </li>
+        <li>@Html.ActionLink("Logout", "Logout", "Usuarios")</li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Cadastrar-se", "CriarUsuario", "Usuarios")
+        </li>
+        <li>@Html.ActionLink("Login", "Login", "Usuarios")</li>
+    </ul>
+}
+<!--Usuário não logado cai no else-->

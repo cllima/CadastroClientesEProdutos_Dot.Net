@@ -1,0 +1,48 @@
+﻿@model Lab.MVC.CadastroClientesEProdutos.Models.Item
+
+@{
+    ViewBag.Title = "Remover";
+}
+
+<h2>Remover</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

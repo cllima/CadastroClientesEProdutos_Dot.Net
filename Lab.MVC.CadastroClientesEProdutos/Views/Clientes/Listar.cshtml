@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Lab.MVC.CadastroClientesEProdutos.Models.Cliente>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listagem de Clientes</h2>
+
+<p>
+    @Html.ActionLink("Incluir Novo Cliente", "Incluir", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Documento  }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Documento }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Documento }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

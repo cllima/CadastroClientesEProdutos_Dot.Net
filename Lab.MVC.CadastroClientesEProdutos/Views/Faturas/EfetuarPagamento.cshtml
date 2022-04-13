@@ -1,0 +1,52 @@
+﻿@model Lab.MVC.CadastroClientesEProdutos.Models.Fatura
+
+@{
+    ViewBag.Title = "EfetuarPagamento";
+}
+
+<h2>Efetuar Pagamento</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumeroCartao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumeroCartao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumeroCartao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumeroPedido, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NumeroPedido,(SelectList)ViewBag.ListaDePedidos,new { @class = "form-control" })
+              
+                @Html.ValidationMessageFor(model => model.NumeroPedido, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Efetuar Pagamento" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar p/ Menu", "Index", null, new { @class = "btn btn-warning" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,58 @@
+﻿@model Lab.MVC.CadastroClientesEProdutos.Models.Produto
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhe do Produto</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("BuscarFoto", "Produtos", new { id = Model.Id })" style="width:60px;" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-primary"}) |
+    @Html.ActionLink("Voltar p/ Lista", "Listar", null, new { @class = "btn btn-success" })
+</p>

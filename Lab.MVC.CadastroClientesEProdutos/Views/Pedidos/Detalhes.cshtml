@@ -1,0 +1,42 @@
+﻿@model Lab.MVC.CadastroClientesEProdutos.Models.Pedido
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhe do Pedido</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteInfo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClienteInfo.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Voltar p/ Lista", "Listar", null, new { @class = "btn btn-success" })
+</p>

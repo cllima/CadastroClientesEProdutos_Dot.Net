@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Lab.MVC.CadastroClientesEProdutos.Models.Fatura>
+
+@{
+    ViewBag.Title = "ListarFaturas";
+}
+
+<h2>Lista de Faturas</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroCartao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroCartao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+       
+    </tr>
+}
+
+</table>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Lab.MVC.CadastroClientesEProdutos.ViewModels.ItensPedidoViewModel>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    @Html.ActionLink("Novo Item", "Incluir", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantItens)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroPedido)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdItem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantItens)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalItem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroPedido)
+        </td>
+        <td>
+            @Html.ActionLink("Editar Item", "Editar", new { id = item }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detalhe", "Detalhes", new { id = item }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Remover", "Excluir", new { id = item }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

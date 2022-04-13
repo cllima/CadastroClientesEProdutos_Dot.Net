@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Faturas";
+}
+<h2>Faturas - Escolha uma opção</h2>
+
+<ul>
+    @Html.ActionLink("Efetuar Pagamento", "EfetuarPagamento", null, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Listar Faturas", "ListarFaturas", null, new { @class = "btn btn-info" })
+</ul>

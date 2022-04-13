@@ -1,0 +1,53 @@
+﻿@model Lab.MVC.CadastroClientesEProdutos.Models.Pedido
+
+@{
+    ViewBag.Title = "Incluir";
+}
+
+<h2>Incluir Pedido</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.DocCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            <!--AQUI DropDownListFor-->
+            @Html.DropDownListFor(model => model.DocCliente, (SelectList)ViewBag.ListaDeClientes, new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.DocCliente, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!--Omitimos a data do pedido, porque no controller assumimos a data atual-->
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumeroPedido, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NumeroPedido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NumeroPedido, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Incluir Pedido" class="btn btn-info" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Voltar para o Menu", "Index", null, new { @class = "btn btn-success" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

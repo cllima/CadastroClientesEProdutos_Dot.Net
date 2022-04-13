@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Erro";
+}
+
+
+<hgroup>
+
+    <h2>Encontrado um erro no processamento da sua Solicitação!!!</h2>
+
+</hgroup>
+
+<div class="alert alert-danger text-center">
+    <!--É recomendado colocar as ViewBag ou ViewData validado no IF conforme abaixo.-->
+
+    @if (ViewBag.MensagemErro != null)
+    {
+        @ViewBag.MensagemErro
+    }
+</div>
+
+<!--Aqui Mostra a mensagem de Erro na View.-->
+<!--https://localhost:44381/Home/MostrarErro-->
